@@ -1,0 +1,23 @@
+{
+    "name": "example-project",
+    "version": "0.0.0",
+    "files": [
+        "main.ts",
+        "assets.ts",
+        "home.ts",
+        "exampleScene.ts",
+        "exampleMicroGUIScene.ts"
+    ],
+    "supportedTargets": [
+        "microbit"
+    ],
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "datalogger": "*",
+        "user-interface-base": "github:microbit-apps/user-interface-base#v0.0.34",
+        "microgui": "github:microbit-apps/microgui#v0.0.45"
+    },
+    "testDependencies": {}
+}
