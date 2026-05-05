@@ -16,16 +16,14 @@ namespace example_project {
     /* override */
     startup() {
       super.startup()
-      const y = 25
-
       this.navigator.setBtns([[
         new Button({
           parent: null,
           style: ButtonStyles.Transparent,
           icon: "linear_graph_1",
-          ariaId: "My button",
-          x: -58,
-          y,
+          ariaId: "Select me!",
+          x: 0,
+          y: 25,
           onClick: () => {
             this.app.popScene()
             this.app.pushScene(new ExampleScene(this.app))
@@ -36,7 +34,7 @@ namespace example_project {
 
     private drawVersion() {
       const font = bitmaps.font5
-      const text = "v1.7.6"
+      const text = "v0.0.1"
       Screen.print(
         text,
         Screen.RIGHT_EDGE - (font.charWidth * text.length),
@@ -82,13 +80,14 @@ namespace example_project {
       )
 
       if (!this.yOffset) {
+        const flavourText = "Let's make an app!"
         Screen.print(
-          "lorem ipsum",
+          flavourText,
           Screen.LEFT_EDGE +
           ((Screen.WIDTH + microdataLogo.width) >> 1)
           + dy
           -
-          font.charWidth * "lorem ipsum".length,
+          font.charWidth * flavourText.length,
           Screen.TOP_EDGE +
           OFFSET +
           microdataLogo.height +

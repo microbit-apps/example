@@ -2,10 +2,33 @@ namespace example_project {
   import Screen = user_interface_base.Screen
   import Scene = user_interface_base.Scene
   import AppInterface = user_interface_base.AppInterface
+  import font = user_interface_base.font
 
+
+  // Use a Scene instead of a CursorScene when you want to control display-shield button behaviour yourself.
   export class ExampleScene extends Scene {
     constructor(app: AppInterface) {
       super(app)
+    }
+
+    startup() {
+      // Setup display-shield buttons yourself
+      control.onEvent(
+        ControllerButtonEvent.Pressed,
+        controller.A.id,
+        () => {
+          this.app.pushScene(new ExampleMicroGUIScene(this.app))
+        }
+      )
+
+      control.onEvent(
+        ControllerButtonEvent.Pressed,
+        controller.B.id,
+        () => {
+          this.app.popScene()
+        }
+      )
+
     }
 
     draw() {
@@ -15,6 +38,23 @@ namespace example_project {
         Screen.WIDTH,
         Screen.HEIGHT,
         0x6
+      )
+
+    
+      const txt1 = "Press A for the next scene"
+      Screen.print(
+        txt1,
+        txt1.length * font.charWidth >> 1,
+        20,                                
+        15
+      )
+
+      const txt2 = "Press B to go back"
+      Screen.print(
+        txt2,
+        txt2.length * font.charWidth >> 1,
+        60,                                
+        15
       )
 
       super.draw()
