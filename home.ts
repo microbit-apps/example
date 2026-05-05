@@ -25,7 +25,6 @@ namespace example_project {
           x: 0,
           y: 25,
           onClick: () => {
-            this.app.popScene()
             this.app.pushScene(new ExampleScene(this.app))
           },
         })

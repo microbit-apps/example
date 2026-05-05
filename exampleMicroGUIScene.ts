@@ -16,15 +16,15 @@ namespace example_project {
 
   export class ExampleMicroGUIScene extends GUIComponentScene {
     constructor(app: AppInterface) {
-      super({ app, colour: 6 }) // 6 = light blue w/ default palette
+      super({ app, colour: 3 }) // 6 = light blue w/ default palette
 
       // microgui components are simple blocks with lots of optional arguments
       const simpleTextComponent: GUIComponentAbstract = new TextBox({
-        alignment: GUIComponentAlignment.BOT,
+        alignment: GUIComponentAlignment.TOP_LEFT,
         isActive: false,
         title: "Title Text :)", // optional arg
         text: ["Press micro:bit A btn"], // optional arg
-        colour: 3, // optional arg
+        colour: 2, // optional arg
         xScaling: 1.7, // optional arg
       });
 

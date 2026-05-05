@@ -28,7 +28,6 @@ namespace example_project {
           this.app.popScene()
         }
       )
-
     }
 
     draw() {
