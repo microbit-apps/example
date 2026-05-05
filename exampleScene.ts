@@ -40,20 +40,19 @@ namespace example_project {
         0x6
       )
 
-    
       const txt1 = "Press A for the next scene"
       Screen.print(
         txt1,
-        txt1.length * font.charWidth >> 1,
-        20,                                
+        -txt1.length * font.charWidth >> 1,
+        -20,
         15
       )
 
       const txt2 = "Press B to go back"
       Screen.print(
         txt2,
-        txt2.length * font.charWidth >> 1,
-        60,                                
+        -txt2.length * font.charWidth >> 1,
+        20,
         15
       )
 
