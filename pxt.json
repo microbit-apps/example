@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "files": [
         "main.ts",
+        "app.ts",
         "assets.ts",
         "home.ts",
         "exampleScene.ts",
