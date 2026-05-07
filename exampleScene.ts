@@ -4,8 +4,10 @@ namespace example_project {
   import AppInterface = user_interface_base.AppInterface
   import font = user_interface_base.font
 
-
-  // Use a Scene instead of a CursorScene when you want to control display-shield button behaviour yourself.
+  /**
+  * Use a Scene instead of a CursorScene when you want to
+  * control display-shield button behaviour yourself.
+  */
   export class ExampleScene extends Scene {
     constructor(app: AppInterface) {
       super(app)
@@ -36,7 +38,7 @@ namespace example_project {
         Screen.TOP_EDGE,
         Screen.WIDTH,
         Screen.HEIGHT,
-        0x6
+        6 // Light blue in the default palette
       )
 
       const txt1 = "Press A for the next scene"
@@ -44,7 +46,7 @@ namespace example_project {
         txt1,
         -txt1.length * font.charWidth >> 1,
         -20,
-        15
+        15 // Black in the default palette
       )
 
       const txt2 = "Press B to go back"
@@ -52,7 +54,7 @@ namespace example_project {
         txt2,
         -txt2.length * font.charWidth >> 1,
         20,
-        15
+        15 // Black in the default palette
       )
 
       super.draw()

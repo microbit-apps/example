@@ -1,24 +1,22 @@
-// This is an example of making a scene with microgui.
-// microgui is a nascent extension that endeavours to make it easier to develop complex scenes.
-// It provides components that you can easily manipulate to make more complex scenes.
-// If you have problems with microgui, please file an issue or reach out. https://github.com/microbit-apps/MicroGUI/issues
+/**
+* This is an example of making a scene with microgui.
+* microgui is a nascent extension that endeavours to make it easier to develop complex scenes.
+* It provides components that you can easily manipulate to make more complex scenes.
+* If you have problems with microgui, please file an issue or reach out. https://github.com/microbit-apps/MicroGUI/issues
+*/
 namespace example_project {
   import AppInterface = user_interface_base.AppInterface
 
-  // microgui enables scenes to be made up of hetrogenous components:
+  // MicroGUI enables scenes to be made up of hetrogenous components:
   import GUIComponentScene = microgui.GUIComponentScene
   import GUIComponentAbstract = microgui.GUIComponentAbstract
   import GUIComponentAlignment = microgui.GUIComponentAlignment
   import TextBox = microgui.TextBox
-  // Other microgui components:
-  // import TextButtonCollection = microgui.TextButtonCollection
-  // import TextButton = microgui.TextButton
 
   export class ExampleMicroGUIScene extends GUIComponentScene {
     constructor(app: AppInterface) {
-      super({ app, colour: 3 }) // 6 = light blue w/ default palette
+      super({ app, colour: 3 }) // 3 = Red in the default palette
 
-      // microgui components are simple blocks with lots of optional arguments
       const simpleTextComponent: GUIComponentAbstract = new TextBox({
         alignment: GUIComponentAlignment.TOP_LEFT,
         isActive: false,
@@ -28,8 +26,10 @@ namespace example_project {
         xScaling: 1.7, // optional arg
       });
 
+
       // Cast the object to access TextBox-specific properties
       (simpleTextComponent as TextBox).title = "hi";
+
 
       // Manipulating a component after it's been created:
       let count = 0;

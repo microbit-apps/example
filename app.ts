@@ -1,4 +1,7 @@
-// Define a namespace for your project, so you don't have to prepend it to everything.
+/**
+* Define a namespace for your project
+* so you don't have to prepend it to everything.
+*/
 namespace example_project {
   // This import is really just a convenience to avoid having to prepend user_interface_base
   // Extensions and files are included when you list them inside pxt.json
@@ -6,7 +9,7 @@ namespace example_project {
   import Scene = user_interface_base.Scene
   import SceneManager = user_interface_base.SceneManager
 
-  // application configuration:
+  // Application configuration:
   user_interface_base.getIcon = (id: string) => icons.get(id)
   user_interface_base.resolveTooltip = (ariaId: string) => ariaId
 
@@ -32,11 +35,12 @@ namespace example_project {
       this.sceneManager.popScene()
     }
 
-    // These are just stubs to satisfy the AppInterface. You can implement them as needed:
+    // Stub to satisfy AppInterface. You can implement as needed:
     public save(slot: string, buffer: Buffer): boolean {
       return true;
     }
 
+    // Stub to satisfy AppInterface. You can implement as needed:
     public load(slot: string): Buffer {
       return Buffer.create(0)
     }
