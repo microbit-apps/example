@@ -1,19 +1,19 @@
+/**
+* assets.ts contains custom assets, and surfaces icons.get(name: string)
+* This function allows you to get your assets, and the ones in user_interface_base
+* It's done this way to make locallisation easier later on.
+*/
 namespace example_project {
-  //% shim=TD_NOOP
-  function extraSamples(name: string) {
-
-  }
-
   export class icons {
     public static get(name: string, nullIfMissing = false): Bitmap {
-      if (name == "microdataLogo") return microdataLogo
+      if (name == "exampleProjectLogo") return exampleProjectLogo
       if (name == "tick") return tick
 
       return user_interface_base.icons.get(name, nullIfMissing);
     }
   }
 
-  export const microdataLogo = bmp` 
+  export const exampleProjectLogo = bmp` 
     ....111111.......111111...1111................................................11111111111..............................................................
     ...11bbbbbb.....11bbbbbb.11bbbb...............................................1bbbbbbbbbbff.......................111..................................
     ...1bbbbbbbb...11bbbbbbbf1bbbbbf..............................................1bbbbbbbbbbbff.....................1bbbb.................................

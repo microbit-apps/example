@@ -9,6 +9,9 @@ namespace example_project {
   import ExampleScene = example_project.ExampleScene
 
   export class Home extends CursorScene {
+    /** Used by draw for examplelogo visual effect **/
+    private yOffset = -Screen.HEIGHT >> 1
+
     constructor(app: AppInterface) {
       super(app)
     }
@@ -22,7 +25,18 @@ namespace example_project {
           style: ButtonStyles.Transparent,
           icon: "linear_graph_1",
           ariaId: "Select me!",
-          x: 0,
+          x: -25,
+          y: 25,
+          onClick: () => {
+            this.app.pushScene(new ExampleScene(this.app))
+          },
+        }),
+        new Button({
+          parent: null,
+          style: ButtonStyles.Transparent,
+          icon: "linear_graph_2",
+          ariaId: "Or select me!",
+          x: -25,
           y: 25,
           onClick: () => {
             this.app.pushScene(new ExampleScene(this.app))
@@ -38,62 +52,55 @@ namespace example_project {
         text,
         Screen.RIGHT_EDGE - (font.charWidth * text.length),
         Screen.BOTTOM_EDGE - font.charHeight - 2,
-        0xb,
+        11, // light grey in the default palette
         font
       )
     }
 
-    private yOffset = -Screen.HEIGHT >> 1
     draw() {
       Screen.fillRect(
         Screen.LEFT_EDGE,
         Screen.TOP_EDGE,
         Screen.WIDTH,
         Screen.HEIGHT,
-        0xc
+        12 // purple in default palette
       )
 
+      // How we can get bitmaps from assets, which we then draw to the screen:
       const microbitLogo = icons.get("microbitLogo")
-      const microdataLogo = icons.get("microdataLogo")
+      const microdataLogo = icons.get("exampleProjectLogo")
 
+      // This code makes the microdataLogo scroll down from the screen and bounce.
+      // You can ignore the specifics of this code:
       this.yOffset = Math.min(0, this.yOffset + 2)
       const t = control.millis()
       const dy = this.yOffset == 0 ? (Math.idiv(t, 800) & 1) - 1 : 0
       const margin = 2
       const OFFSET = (Screen.HEIGHT >> 1) - microdataLogo.height - margin - 9
-      const y = Screen.TOP_EDGE + OFFSET //+ dy
+      const y = Screen.TOP_EDGE + OFFSET
 
       Screen.drawTransparentImage(
         microdataLogo,
-        Screen.LEFT_EDGE + ((Screen.WIDTH - microdataLogo.width) >> 1)// + dy
-,
+        Screen.LEFT_EDGE + ((Screen.WIDTH - microdataLogo.width) >> 1),
         y + this.yOffset
       )
 
       Screen.drawTransparentImage(
         microbitLogo,
-        Screen.LEFT_EDGE +
-        ((Screen.WIDTH - microbitLogo.width) >> 1) + dy
-        ,
+        Screen.LEFT_EDGE + ((Screen.WIDTH - microbitLogo.width) >> 1),
         y - microdataLogo.height + this.yOffset + margin
       )
 
       if (!this.yOffset) {
         const flavourText = "Let's make an app!"
+        const x = Screen.LEFT_EDGE + ((Screen.WIDTH + microdataLogo.width) >> 1) + dy
+                  - (flavourText.length * font.charWidth)
+        const y = Screen.TOP_EDGE + OFFSET + microdataLogo.height + dy + this.yOffset + 3
         Screen.print(
           flavourText,
-          Screen.LEFT_EDGE +
-          ((Screen.WIDTH + microdataLogo.width) >> 1)
-          + dy
-          -
-          font.charWidth * flavourText.length,
-          Screen.TOP_EDGE +
-          OFFSET +
-          microdataLogo.height +
-          dy +
-          this.yOffset +
-          3,
-          0xb,
+          x,
+          y,
+          11, // light grey in the default palette
           font
         )
       }

@@ -46,7 +46,7 @@ namespace example_project {
         txt1,
         -txt1.length * font.charWidth >> 1,
         -20,
-        15 // Black in the default palette
+        15 // Blcak in the default palette
       )
 
       const txt2 = "Press B to go back"
@@ -54,7 +54,7 @@ namespace example_project {
         txt2,
         -txt2.length * font.charWidth >> 1,
         20,
-        15 // Black in the default palette
+        15 // Blcak in the default palette
       )
 
       super.draw()
