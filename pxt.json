@@ -8,7 +8,7 @@
         "home.ts",
         "exampleScene.ts",
         "exampleMicroGUIScene.ts",
-        "custom.ts"
+        "simpleCursorScene.ts"
     ],
     "supportedTargets": [
         "microbit"
