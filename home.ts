@@ -6,8 +6,6 @@ namespace example_project {
   import AppInterface = user_interface_base.AppInterface
   import font = user_interface_base.font
 
-  import ExampleScene = example_project.ExampleScene
-
   export class Home extends CursorScene {
     /** Used by draw for examplelogo visual effect **/
     private yOffset = -Screen.HEIGHT >> 1
@@ -39,7 +37,7 @@ namespace example_project {
           x: 40,
           y: 25,
           onClick: () => {
-            this.app.pushScene(new ExampleMicroGUIScene(this.app))
+            this.app.pushScene(new SimpleCursorScene(this.app))
           },
         })
       ]])
