@@ -25,7 +25,7 @@ namespace example_project {
           style: ButtonStyles.Transparent,
           icon: "linear_graph_1",
           ariaId: "Select me!",
-          x: -25,
+          x: -40,
           y: 25,
           onClick: () => {
             this.app.pushScene(new ExampleScene(this.app))
@@ -36,7 +36,7 @@ namespace example_project {
           style: ButtonStyles.Transparent,
           icon: "linear_graph_2",
           ariaId: "Or select me!",
-          x: -25,
+          x: 40,
           y: 25,
           onClick: () => {
             this.app.pushScene(new ExampleScene(this.app))
