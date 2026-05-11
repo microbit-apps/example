@@ -15,21 +15,19 @@ namespace example_project {
 
   export class ExampleMicroGUIScene extends GUIComponentScene {
     constructor(app: AppInterface) {
-      super({ app, colour: 3 }) // 3 = Red in the default palette
+      super({ app, colour: 3 }) // 3 = Pink in the default palette
 
       const simpleTextComponent: GUIComponentAbstract = new TextBox({
         alignment: GUIComponentAlignment.TOP_LEFT,
         isActive: false,
         title: "Title Text :)", // optional arg
         text: ["Press micro:bit A btn"], // optional arg
-        colour: 2, // optional arg
+        colour: 2, // optional arg; 2 = Red
         xScaling: 1.7, // optional arg
       });
 
-
       // Cast the object to access TextBox-specific properties
       (simpleTextComponent as TextBox).title = "hi";
-
 
       // Manipulating a component after it's been created:
       let count = 0;
@@ -39,6 +37,16 @@ namespace example_project {
       })
 
       this.components = [simpleTextComponent]
+    }
+
+    startup() {
+      control.onEvent(
+        ControllerButtonEvent.Pressed,
+        controller.B.id,
+        () => {
+          this.app.popScene()
+        }
+      )
     }
 
     draw() {
