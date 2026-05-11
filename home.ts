@@ -34,12 +34,12 @@ namespace example_project {
         new Button({
           parent: null,
           style: ButtonStyles.Transparent,
-          icon: "linear_graph_2",
+          icon: "largeDisk",
           ariaId: "Or select me!",
           x: 40,
           y: 25,
           onClick: () => {
-            this.app.pushScene(new ExampleScene(this.app))
+            this.app.pushScene(new ExampleMicroGUIScene(this.app))
           },
         })
       ]])
