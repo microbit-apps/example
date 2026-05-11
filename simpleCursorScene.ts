@@ -14,14 +14,6 @@ namespace example_project {
     startup() {
       super.startup()
 
-      control.onEvent(
-        ControllerButtonEvent.Pressed,
-        controller.B.id,
-        () => {
-          this.app.popScene()
-        }
-      )
-
       this.navigator.setBtns([[
         new Button({
           parent: null,
@@ -35,6 +27,17 @@ namespace example_project {
           },
         })
       ]])
+    }
+
+    activate() {
+        super.activate()
+        control.onEvent(
+            ControllerButtonEvent.Pressed,
+            controller.B.id,
+            () => {
+                this.app.popScene()
+            }
+        )
     }
 
     draw() {

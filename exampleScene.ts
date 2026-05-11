@@ -13,7 +13,10 @@ namespace example_project {
       super(app)
     }
 
-    startup() {
+    // This is called when the Scene 'becomes active'.
+    // This happens when the scene ahead is popped, or this is the first one pushed.
+    activate() {
+      super.activate()
       // Setup display-shield buttons yourself
       control.onEvent(
         ControllerButtonEvent.Pressed,

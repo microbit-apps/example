@@ -39,7 +39,8 @@ namespace example_project {
       this.components = [simpleTextComponent]
     }
 
-    startup() {
+    activate() {
+      super.activate();
       control.onEvent(
         ControllerButtonEvent.Pressed,
         controller.B.id,
